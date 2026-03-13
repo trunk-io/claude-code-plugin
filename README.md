@@ -72,6 +72,11 @@ The Trunk MCP server uses **OAuth 2.0 + OpenID Connect**. When you first connect
 - [MCP server docs](https://docs.trunk.io/flaky-tests/use-mcp-server)
 - [Claude Code setup guide](https://docs.trunk.io/flaky-tests/use-mcp-server/configuration/claude-code-cli)
 
+## Also Available For
+
+- [Cursor](https://github.com/trunk-io/cursor-plugin)
+- [Any MCP client](https://github.com/trunk-io/mcp-server) (GitHub Copilot, Gemini CLI, and more)
+
 ## License
 
 MIT
