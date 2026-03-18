@@ -70,7 +70,8 @@ The Trunk MCP server uses **OAuth 2.0 + OpenID Connect**. When you first connect
 
 - [Trunk Flaky Tests docs](https://docs.trunk.io/flaky-tests)
 - [MCP server docs](https://docs.trunk.io/flaky-tests/use-mcp-server)
-- [Claude Code setup guide](https://docs.trunk.io/flaky-tests/use-mcp-server/configuration/claude-code-cli)
+- [Claude Code MCP setup](https://docs.trunk.io/flaky-tests/use-mcp-server/configuration/claude-code-cli)
+- [Claude Code Plugin setup](https://docs.trunk.io/flaky-tests/use-mcp-server/configuration/claude-code-plugin) (docs PR: [trunk-io/docs#515](https://github.com/trunk-io/docs/pull/515))
 
 ## Also Available For
 
