@@ -8,9 +8,10 @@ command won't resolve for users.
 
 ### 1. Submit the directory listing
 
-Anthropic uses a form for external plugin submissions:
+Anthropic has in-app submission forms:
 
-**https://clau.de/plugin-directory-submission**
+- **Claude.ai**: https://claude.ai/settings/plugins/submit
+- **Console**: https://platform.claude.com/plugins/submit
 
 Fill it out with:
 
