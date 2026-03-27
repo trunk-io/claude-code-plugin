@@ -13,6 +13,8 @@ Anthropic has in-app submission forms:
 - **Claude.ai**: https://claude.ai/settings/plugins/submit
 - **Console**: https://platform.claude.com/plugins/submit
 
+Check submission status at: https://claude.ai/settings/plugins/submissions
+
 Fill it out with:
 
 | Field | Value |

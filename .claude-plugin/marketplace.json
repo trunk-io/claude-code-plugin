@@ -1,0 +1,5 @@
+{
+  "name": "trunk-io-claude-code-plugin",
+  "description": "Trunk.io plugins for Claude Code",
+  "plugins": ["trunk"]
+}
