@@ -10,7 +10,11 @@
     {
       "name": "trunk",
       "description": "Flaky test detection, root cause analysis, and fix suggestions for development teams.",
-      "source": ".",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/trunk-io/claude-code-plugin.git",
+        "sha": "e53202db4271a425ce7e94e9039ca4c575770149"
+      },
       "category": "development",
       "homepage": "https://trunk.io"
     }
