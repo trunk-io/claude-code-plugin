@@ -1,5 +1,18 @@
 {
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "trunk-io-claude-code-plugin",
   "description": "Trunk.io plugins for Claude Code",
-  "plugins": ["trunk"]
+  "owner": {
+    "name": "Trunk",
+    "email": "support@trunk.io"
+  },
+  "plugins": [
+    {
+      "name": "trunk",
+      "description": "Flaky test detection, root cause analysis, and fix suggestions for development teams.",
+      "source": ".",
+      "category": "development",
+      "homepage": "https://trunk.io"
+    }
+  ]
 }
