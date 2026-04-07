@@ -30,11 +30,26 @@ This plugin connects Claude Code to the [Trunk Flaky Tests](https://trunk.io) MC
 
 ## Install
 
-Install from the Claude Code plugin marketplace:
+Add the [community plugins marketplace](https://github.com/anthropics/claude-plugins-community) if you haven't already:
 
 ```
-/plugin install trunk@claude-plugin-directory
+claude plugin marketplace add anthropics/claude-plugins-community
 ```
+
+Then install the Trunk plugin:
+
+```
+claude plugin install trunk@claude-community
+```
+
+<details>
+<summary>Alternative: install directly from GitHub</summary>
+
+```
+/plugin install trunk@https://github.com/trunk-io/claude-code-plugin
+```
+
+</details>
 
 Or add manually to your MCP configuration:
 
