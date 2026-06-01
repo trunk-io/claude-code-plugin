@@ -24,25 +24,49 @@ Always configure the output path explicitly rather than relying on defaults — 
 
 ## Trunk Analytics Uploader
 
-After tests run, upload results using the `trunk-analytics-cli`:
+After tests run, upload results to Trunk.
+
+### GitHub Actions (recommended)
+
+Use the official `trunk-io/analytics-uploader` action. It downloads the CLI for you, so there's no binary URL to keep current:
+
+```yaml
+- name: Upload test results to Trunk
+  if: ${{ !cancelled() }}   # upload even when tests fail — critical for flaky data
+  continue-on-error: true   # an upload hiccup shouldn't fail the build
+  uses: trunk-io/analytics-uploader@v1
+  with:
+    junit-paths: path/to/reports/**/*.xml
+    org-slug: <your-org>
+    token: ${{ secrets.TRUNK_TOKEN }}
+```
+
+### Other CI providers (manual CLI)
+
+Where the action isn't available, download the CLI from the GitHub releases page and run `upload`:
 
 ```bash
-# Install (one-time, add to CI)
-curl -fsSL https://trunk.io/releases/analytics-cli/latest/trunk-analytics-cli-linux-x86_64.tar.gz | tar xz
+# Install (one-time, add to CI). Pick the asset for your runner's platform:
+#   Linux x86_64:  trunk-analytics-cli-x86_64-unknown-linux.tar.gz
+#   Linux arm64:   trunk-analytics-cli-aarch64-unknown-linux.tar.gz
+#   macOS arm64:   trunk-analytics-cli-aarch64-apple-darwin.tar.gz
+#   macOS x86_64:  trunk-analytics-cli-x86_64-apple-darwin.tar.gz
+curl -fsSL https://github.com/trunk-io/analytics-cli/releases/latest/download/trunk-analytics-cli-x86_64-unknown-linux.tar.gz | tar xz
 
 # Upload
-trunk-analytics-cli upload \
+./trunk-analytics-cli upload \
   --org-url-slug <your-org> \
   --token $TRUNK_TOKEN \
   --junit-paths "path/to/reports/**/*.xml"
 ```
 
-The `TRUNK_TOKEN` should be stored as a CI secret, never hardcoded.
+The `TRUNK_TOKEN` should be stored as a CI secret, never hardcoded. Use the organization token, not a repo token.
 
 ## CI Provider Tips
 
 ### GitHub Actions
-- Use `if: always()` on the upload step so results are uploaded even when tests fail — this is critical for capturing flaky test data.
+- Prefer the `trunk-io/analytics-uploader@v1` action (see above) over a hand-rolled CLI download — it stays current with releases.
+- Use `if: ${{ !cancelled() }}` (or `if: always()`) on the upload step so results are uploaded even when tests fail — this is critical for capturing flaky test data.
 - The test and upload steps should be in the same job to share the filesystem.
 
 ### CircleCI
@@ -66,6 +90,7 @@ The `TRUNK_TOKEN` should be stored as a CI secret, never hardcoded.
 
 ## Documentation
 
-- Full setup guide: https://docs.trunk.io/flaky-tests/use-mcp-server/mcp-tool-reference/set-up-test-uploads
-- Flaky Tests overview: https://docs.trunk.io/flaky-tests
-- CI configuration examples: https://docs.trunk.io/flaky-tests
+- GitHub Actions setup: https://docs.trunk.io/flaky-tests/get-started/ci-providers/github-actions
+- Analytics CLI reference: https://docs.trunk.io/flaky-tests/reference/cli-reference
+- Set up test uploads (MCP): https://docs.trunk.io/flaky-tests/reference/mcp-reference/set-up-test-uploads
+- Flaky Tests overview: https://docs.trunk.io/flaky-tests/overview
