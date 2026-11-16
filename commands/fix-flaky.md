@@ -19,5 +19,5 @@ Use the Trunk MCP server to retrieve root cause analysis and fix a flaky test.
 
 If the MCP server returns no results, suggest that the user:
 - Check the test name spelling
-- Verify their repo is connected to Trunk (run `/trunk:setup-uploads` if not)
-- Check https://app.trunk.io to see if the test appears in their dashboard
+- Verify their CI uploads test results to a Trunk test collection (run `/trunk:setup-uploads` if not)
+- Check the collection's **Tests** page at https://app.trunk.io to see if the test appears there

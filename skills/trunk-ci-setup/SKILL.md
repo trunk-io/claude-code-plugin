@@ -34,7 +34,7 @@ Use the official `trunk-io/analytics-uploader` action. It downloads the CLI for 
 - name: Upload test results to Trunk
   if: ${{ !cancelled() }}   # upload even when tests fail — critical for flaky data
   continue-on-error: true   # an upload hiccup shouldn't fail the build
-  uses: trunk-io/analytics-uploader@v1
+  uses: trunk-io/analytics-uploader@v2
   with:
     junit-paths: path/to/reports/**/*.xml
     org-slug: <your-org>
@@ -67,7 +67,7 @@ The `TRUNK_TOKEN` should be stored as a CI secret, never hardcoded. Use the orga
 ## CI Provider Tips
 
 ### GitHub Actions
-- Prefer the `trunk-io/analytics-uploader@v1` action (see above) over a hand-rolled CLI download — it stays current with releases.
+- Prefer the `trunk-io/analytics-uploader@v2` action (see above) over a hand-rolled CLI download — it stays current with releases.
 - Use `if: ${{ !cancelled() }}` (or `if: always()`) on the upload step so results are uploaded even when tests fail — this is critical for capturing flaky test data.
 - The test and upload steps should be in the same job to share the filesystem.
 
